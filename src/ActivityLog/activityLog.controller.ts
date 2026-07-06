@@ -6,7 +6,7 @@ import {
 import { ActivityLogService } from './activityLog.service';
 import { ApiQuery } from '@nestjs/swagger';
 
-@Controller('ActivityLog')
+@Controller('activity-log')
 export class ActivityLogController {
     constructor(private readonly service: ActivityLogService) { }
 

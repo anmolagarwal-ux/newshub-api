@@ -13,45 +13,45 @@ import { CustomResponse } from 'src/Modal/CustomResponse.dto';
 import { ApiOperation, ApiQuery } from '@nestjs/swagger';
 
 
-@Controller('contactus')
+@Controller('contact-us')
 export class ContactUsController {
     constructor(private readonly service: ContactUsService){}
 
 
-    @Post()async Create(@Body()dto: CreateContactUsDTO){
+    @Post() async Create(@Body() dto: CreateContactUsDTO) {
         const response = new CustomResponse<any>();
         response.isSuccess = false;
         response.response = {};
         response.statusCode = 400;
-        try{
-        if (dto.name == '') {
-            response.message = 'name is required';
-            return response;
+        try {
+            if (dto.name == '') {
+                response.message = 'name is required';
+                return response;
+            }
+            else if (dto.email == '') {
+                response.message = 'email is required';
+                return response;
+            }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dto.email)) {
+                response.message = 'invalid email format';
+                return response;
+            }
+            else if (dto.body == '') {
+                response.message = 'body is required';
+                return response;
+            }
+            else if (dto.subject == '') {
+                response.message = 'subject is required';
+                return response;
+            }
+            else {
+                return this.service.Create(dto);
+            }
         }
-        else if (dto.email == '') {
-            response.message = 'email is required';
-            return response;
+        catch (ex) {
         }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dto.email)) {
-            response.message = 'invalid email format';
-            return response;
-        }
-        else if (dto.body == '') {
-            response.message = 'body is required';
-            return response;
-        }
-        else if(dto.subject == ''){
-            response.message = 'subject is required';
-            return response;
-        }
-        else{
-            return this.service.Create(dto);
-        }
-    }
-    catch(ex){
+        return response;
 
-    }
-        
     }
 
     @Get()
