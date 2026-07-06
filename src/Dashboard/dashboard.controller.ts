@@ -7,18 +7,18 @@ import { DashboardService } from './dashboard.service';
 import { ApiBearerAuth } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@Controller('Dashboard')
+@Controller('dashboard')
 export class DashboardController {
     constructor(private readonly service: DashboardService){}
 
-    @Get('Category')
+    @Get('category')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
     async GetAllCategoryDetail(){
         return this.service.GetAllCategoryDetail();
     }
 
-    @Get('Status')
+    @Get('status')
     @UseGuards(JwtAuthGuard)
     @ApiBearerAuth()
     async GetAllStatusDetail(){
