@@ -15,8 +15,8 @@ import { CategoryService } from './category.service';
 import { CreateCategory, UpdateCategory } from './dto/category.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-@ApiTags('Category')
-@Controller('Category')
+@ApiTags('category')
+@Controller('category')
 export class CategoryController {
   constructor(private readonly service: CategoryService) {}
 
