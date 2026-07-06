@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../../Database/database.service';
+import { DatabaseService } from '../../database/database.service';
 import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { UserRepository } from './user.repository';
 
 @Injectable()

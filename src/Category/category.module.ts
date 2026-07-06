@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'Database/database.module';
+import { DatabaseModule } from 'database/database.module';
 import { CategoryController } from './category.controller';
 import { CategoryService } from './category.service';
 import { CategoryRepository } from './category.repository';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'auth/auth.module';
 
 @Module({
 

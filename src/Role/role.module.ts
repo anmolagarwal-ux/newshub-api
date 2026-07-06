@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'Database/database.module';
+import { DatabaseModule } from 'database/database.module';
 import { RoleController } from './role.controller';
 import { RoleRepository } from './role.repository';
 import { RoleService } from './role.service';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'auth/auth.module';
 
 @Module({
 

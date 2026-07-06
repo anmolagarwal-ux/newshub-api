@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as sql from 'mssql';
 
-import { DatabaseService } from '../../Database/database.service';
+import { DatabaseService } from '../../database/database.service';
 import {
     ArticleDetailDto,
     ArticleListDto,

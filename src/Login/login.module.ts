@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { LoginController } from './login.controller';
 import { LoginService } from './login.service';
 import { loginRepository } from './login.respository';
-import { DatabaseModule } from 'Database/database.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { DatabaseModule } from 'database/database.module';
+import { AuthModule } from 'auth/auth.module';
 import { ActivityLogModule } from 'src/ActivityLog/activityLog.module';
 
 

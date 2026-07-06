@@ -8,11 +8,11 @@ import {
  UseGuards,
  Req
 } from '@nestjs/common';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { RoleService } from './role.service';
 import { CreateRoleDTO } from './dto/role.dto';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'auth/jwt-auth.guard';
 
 
 @Controller('Role')

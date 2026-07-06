@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { GetAllDashboard } from './dto/dashboard.dto';
 import { DashboardRepository } from './dashboard.repository';
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ActivityLogRepository } from './activityLog.repository';
 import { ActivityLog } from './dto/activityLog.dto';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 
 @Injectable()
 export class ActivityLogService {constructor(private readonly repo: ActivityLogRepository) {}

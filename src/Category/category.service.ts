@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { CreateCategory, UpdateCategory } from './dto/category.dto';
 import { CategoryRepository } from './category.repository';
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { CreateContactUsDTO, GetAllContactUs } from './dto/contactUs.Dto';
 import { ContantUsRepository } from './contactUs.repository';
 import { ActivityLogService } from 'src/ActivityLog/activityLog.service';

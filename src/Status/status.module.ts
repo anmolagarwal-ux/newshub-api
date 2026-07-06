@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { StatusController } from './status.controller';
 import { StatusService } from './status.service';
 import { StatusRepository } from './status.repository';
-import { DatabaseModule } from 'Database/database.module';
+import { DatabaseModule } from 'database/database.module';
 
 @Module({
   imports: [

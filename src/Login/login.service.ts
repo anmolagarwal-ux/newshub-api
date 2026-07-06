@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { loginRepository } from './login.respository';
-import { AuthService } from 'src/auth/auth.service';
-import { CustomResponse } from 'src/Modal/CustomResponse.dto';
+import { AuthService } from 'auth/auth.service';
+import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { loginRequest } from './dto/login.dto';
 import { ActivityLogService } from 'src/ActivityLog/activityLog.service';
 

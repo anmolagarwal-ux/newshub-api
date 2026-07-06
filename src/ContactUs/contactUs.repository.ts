@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../../Database/database.service';
+import { DatabaseService } from '../../database/database.service';
 import { CreateContactUsDTO, GetAllContactUs } from './dto/contactUs.Dto';
-import { CustomResponse, DBCustomResponse } from 'src/Modal/CustomResponse.dto';
+import { CustomResponse, DBCustomResponse } from 'src/modal/CustomResponse.dto';
 
 @Injectable()
 export class ContantUsRepository {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PublishArticleController } from './publishArticle.controller';
-import { DatabaseModule } from 'Database/database.module';
+import { DatabaseModule } from 'database/database.module';
 import { PublishArticleService } from './publishArticle.service';
 import { PublishArticleRepository } from './publishArticle.repository';
 @Module({
