@@ -19,7 +19,7 @@ export class CreateUserDto {
     @IsNotEmpty()
     @IsString()
     @MinLength(6)
-    password?: string;
+    password!: string;
 
 
     @ApiProperty({ example: 1 })
@@ -44,7 +44,7 @@ export class UpdateUserDto {
     @IsOptional()
     @IsString()
     @MinLength(6)
-    password?: string;
+    password!: string;
 
     @ApiPropertyOptional({ example: 2, description: "Role ID of the user" })
     @IsOptional()

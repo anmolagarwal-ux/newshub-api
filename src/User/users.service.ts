@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../../database/database.service';
 import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
 import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { UserRepository } from './user.repository';
+import { AuthService } from 'auth/auth.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly repo: UserRepository) {}
+  constructor(private readonly repo: UserRepository,
+    private readonly authService: AuthService
+
+  ) {}
   
   async GetAll() {
     const response = new CustomResponse<GetAllUserDto>();
@@ -48,7 +51,10 @@ export class UsersService {
 
   async Create(dto: CreateUserDto) {
     const response = new CustomResponse<any>();
+    dto.password = await this.authService.hashPassword(dto.password) as unknown as string;
+
     const repoRes = await this.repo.Create(dto)
+
 
     if(!repoRes.isSuccess){
         response.isSuccess = false;
@@ -68,6 +74,7 @@ export class UsersService {
 
   async Update(dto: UpdateUserDto) {
     const response = new CustomResponse<any>();
+    dto.password = await this.authService.hashPassword(dto.password) as unknown as string;
     const repoRes = await this.repo.Update(dto);
       if(!repoRes.isSuccess){
         response.isSuccess = false;
