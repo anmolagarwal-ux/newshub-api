@@ -3,26 +3,54 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { PublishArticleService } from './publishArticle.service';
 import { CreateArticleDTO, UpdateArticleDTO } from './dto/publishArticle.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
-
+import {
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
 
 @ApiTags('PublishArticle')
 @Controller('publish-article')
 export class PublishArticleController {
     constructor(private readonly service: PublishArticleService) { }
     
-    @Post()
-    @UseGuards(JwtAuthGuard)
-    @ApiBearerAuth()
-    Create(
-        @Body() dto: CreateArticleDTO,
-        @Req() req: Request
-    ) {
 
-        const request = req as any;
-        dto.author_id = request.user.Id;
 
-        return this.service.Create(dto);
-    }
+@Post()
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
+@UseInterceptors(
+  FileInterceptor('image', {
+    storage: diskStorage({
+      destination:
+        'C:/Users/user/Desktop/Website/news-hub/public/Images',
+      filename: (req, file, cb) => {
+        const uniqueName =
+          Date.now() +
+          '-' +
+          Math.round(Math.random() * 1e9) +
+          extname(file.originalname);
+
+        cb(null, uniqueName);
+      },
+    }),
+  }),
+)
+Create(
+  @UploadedFile() file: any,
+  @Body() dto: CreateArticleDTO,
+  @Req() req: any,
+) {
+  dto.author_id = req.user.Id;
+
+  if (file) {
+    dto.featured_image = `./Images/${file.filename}`;
+  }
+
+  return this.service.Create(dto);
+}
 
     @Get()
     @UseGuards(JwtAuthGuard)
