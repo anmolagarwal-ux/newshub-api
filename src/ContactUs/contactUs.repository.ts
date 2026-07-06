@@ -26,7 +26,7 @@ export class ContantUsRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
+      
         return res;
     }
   }
@@ -46,7 +46,7 @@ export class ContantUsRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
+      
       return res;
     }
   }
@@ -64,7 +64,7 @@ export class ContantUsRepository {
         return res;
     }
     catch (exception) {
-      console.log(exception)
+      
       return res;
     }
   }

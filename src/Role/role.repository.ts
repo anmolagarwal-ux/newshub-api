@@ -24,7 +24,6 @@ export class RoleRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
         return res;
     }
   }
@@ -42,7 +41,6 @@ export class RoleRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
@@ -60,7 +58,6 @@ export class RoleRepository {
         return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }

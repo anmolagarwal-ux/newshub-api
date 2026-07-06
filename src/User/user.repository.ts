@@ -26,8 +26,7 @@ export class UserRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
-        return res;
+      return res;
     }
   }
 
@@ -44,7 +43,6 @@ export class UserRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
@@ -62,7 +60,6 @@ export class UserRepository {
         return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
@@ -87,7 +84,6 @@ export class UserRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
@@ -107,7 +103,6 @@ export class UserRepository {
       });
     }
     catch (exception) {
-      console.log(exception)
     }
 
     return res;

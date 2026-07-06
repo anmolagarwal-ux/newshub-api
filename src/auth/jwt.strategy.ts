@@ -26,7 +26,6 @@ constructor(){
 
 }
 async validate(payload: any) {
-  console.log(payload);
   return {
     Id: payload.Id,
     Name: payload.Name,

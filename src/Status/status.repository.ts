@@ -22,7 +22,6 @@ export class StatusRepository {
             return res;
         }
         catch (exception) {
-            console.log(exception)
             return res;
         }
 

@@ -17,8 +17,6 @@ export class DatabaseService implements OnModuleInit {
       },
 
       });
-
-      console.log('SQL Server Connected');
     } catch (error) {
       console.error('Database Connection Error:', error);
     }

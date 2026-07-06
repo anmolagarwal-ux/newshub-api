@@ -48,7 +48,7 @@ export class PublishArticleRepository {
 
         } catch (e) {
 
-            console.log(e);
+            
             return res;
 
         }
@@ -82,7 +82,7 @@ export class PublishArticleRepository {
 
         } catch (e) {
 
-            console.log(e);
+            
             return res;
 
         }
@@ -111,7 +111,7 @@ export class PublishArticleRepository {
 
         } catch (e) {
 
-            console.log(e);
+            
             return res;
 
         }
@@ -121,14 +121,9 @@ export class PublishArticleRepository {
     async Update(dto: UpdateArticleDTO): Promise<DBCustomResponse> {
 
         const res = new DBCustomResponse();
-
         const pool = this.dbService.getPool();
-
-
         try {
-
             const result = await pool.request()
-
                 .input('id', dto.id)
                 .input('title', dto.title)
                 .input('slug', dto.slug)
@@ -140,61 +135,33 @@ export class PublishArticleRepository {
                 .input('is_featured', dto.is_featured)
                 .input('is_breaking', dto.is_breaking)
                 .input('is_draft', dto.is_draft)
-
                 .execute('sp_PublishArticle_Update');
-
-
             result.recordset.map(data => {
                 res.isSuccess = data.isSuccess;
                 res.message = data.message;
             })
-
-
             return res;
-
-
         } catch (e) {
-
-            console.log(e);
             return res;
-
         }
-
     }
 
-
-
-
-
     async Delete(id: number): Promise<DBCustomResponse> {
-
         const res = new DBCustomResponse();
-
         const pool = this.dbService.getPool();
 
         try {
-
             const result = await pool.request()
                 .input('id', id)
                 .execute('sp_PublishArticle_Delete');
 
-
             result.recordset.map(data => {
                 res.isSuccess = data.isSuccess;
                 res.message = data.message;
             })
-
-
             return res;
-
-
         } catch (e) {
-
-            console.log(e);
             return res;
-
         }
-
     }
-
 }

@@ -25,7 +25,6 @@ export class ActivityLogRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
@@ -45,7 +44,6 @@ export class ActivityLogRepository {
       return res;
     }
     catch (exception) {
-      console.log(exception)
       return res;
     }
   }
