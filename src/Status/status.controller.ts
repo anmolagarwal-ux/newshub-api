@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { StatusService } from './status.service';
 
-@ApiTags('Status')
+@ApiTags('status')
 @Controller('status')
 export class StatusController {
 
@@ -13,8 +13,6 @@ export class StatusController {
 
     @Get()
     async GetAll(){
-
         return this.service.GetAll();
-
     }
 }
