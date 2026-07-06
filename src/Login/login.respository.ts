@@ -21,6 +21,7 @@ export class loginRepository {
         user.fullName =   data.full_name;
         user.email    =   data.email;
         user.roleName =   data.role_name;
+        user.password =   data.password;
       });
       return user;
     }

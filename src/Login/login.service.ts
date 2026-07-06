@@ -25,15 +25,22 @@ export class LoginService {
             response.response = userData;
         }
         else{
-            const token =  await this.authService.login(userData.fullName,userData.roleName,userData.id)
-            await this.activityLogService.CreateActivityLog(1,'Login', 'LoginModule', `Login request from ${login.email}`);
+            const isSucess = await this.authService.validatePassword(login.password, userData.password);
+            if(isSucess)
+                {
+                    const token =  await this.authService.login(userData.fullName,userData.roleName,userData.id)
+                    await this.activityLogService.CreateActivityLog(1,'Login', 'LoginModule', `Login request from ${login.email}`);
 
-            response.isSuccess = true;
-            response.message = 'Login Successful';
-            response.statusCode = 200;
-            response.response = token;
-        }
-        return response
+                    response.isSuccess = true;
+                    response.message = 'Login Successful';
+                    response.statusCode = 200;
+                    response.response = token;
+                }
+            else{
+                return response
+            } 
+        } 
+    return response;
     }
 
 }

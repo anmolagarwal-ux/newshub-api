@@ -10,12 +10,6 @@ export class AuthService {
   ) {}
 
   async login(fullName:string, roleName:string, Id:number){
-
-    // const isMatch = await bcrypt.compare(
-    //   password,
-    //   user.password
-    // );
-
     const payload = {
       Name:fullName,
       Role:roleName,
@@ -28,11 +22,17 @@ export class AuthService {
   }
 
   async hashPassword(password:string){
-
     return bcrypt.hash(
       password,
       10
     );
   }
+
+  async validatePassword(
+  password: string,
+  hashedPassword: string,
+): Promise<boolean> {
+  return bcrypt.compare(password, hashedPassword);
+}
 
 }

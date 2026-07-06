@@ -25,4 +25,5 @@ export class loginUser{
     fullName!: string;
     email!: string;
     roleName!: string;
+    password!: string;
 }
