@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 
 import {
     ArticleBySlugDto,
-    ArticleQueryDto,
     BreakingArticleDto,
     FeaturedArticleDto,
     TopArticleDto
@@ -36,7 +35,7 @@ export class ArticleService {
 
     async getArticles(page: number, pageSize: number, search?: string, categoryId?: number) {
 
-        return await this.articleRepository.getArticles(page,pageSize,search,categoryId,);
+        return await this.articleRepository.getArticles(page, pageSize, search, categoryId,);
 
     }
 
