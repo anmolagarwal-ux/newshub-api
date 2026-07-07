@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { CreateContactUsDTO } from './dto/contactUs.Dto';
 import { ContactUsService } from './contactUs.service';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { ApiOperation, ApiQuery } from '@nestjs/swagger';
+import { CustomResponse } from '../modal/CustomResponse.dto';
 
 
 @Controller('contact-us')

@@ -1,48 +1,34 @@
-import { Injectable } from '@nestjs/common';
-import { ActivityLogRepository } from './activityLog.repository';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ActivityLog } from './dto/activityLog.dto';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
+import { ActivityLogRepository } from './activityLog.repository';
 
 @Injectable()
-export class ActivityLogService {constructor(private readonly repo: ActivityLogRepository) {}
+export class ActivityLogService {
+  constructor(private readonly repo: ActivityLogRepository) {}
 
-    async CreateActivityLog(user_id: number,action_type: string,module_name: string,description: string): Promise<boolean>{
-                    
-        const dto = new ActivityLog();
-        
-        dto.user_id = user_id;
-        dto.module_name=module_name;
-        dto.description=description;
-        dto.action_type=action_type;
+  async CreateActivityLog(
+    user_id: number,
+    action_type: string,
+    module_name: string,
+    description: string,
+  ): Promise<boolean> {
+    const dto = new ActivityLog();
 
-        const repoRes = await this.repo.CreateActivityLog(dto)
+    dto.user_id = user_id;
+    dto.action_type = action_type;
+    dto.module_name = module_name;
+    dto.description = description;
 
-        if(!repoRes.isSuccess){
-            return false;
-        }
-        else{
-            return true;
-        }
+    const result = await this.repo.CreateActivityLog(dto);
+
+    if (!result.isSuccess) {
+      throw new BadRequestException('activity.Create_Failed');
     }
 
-    async GetAll(pageNumber: number, pageSize: number): Promise<CustomResponse<ActivityLog>>{
-    
-            const response = new CustomResponse<ActivityLog>();
-            const repoRes = await this.repo.GetAll(pageNumber, pageSize)
-    
-            if(!repoRes.isSuccess){
-                response.isSuccess = false;
-                response.message = 'Data fetch failed';
-                response.statusCode = 400;
-            }
-            else{
-                
-                response.isSuccess = true;
-                response.message = 'Successfull created a record';
-                response.statusCode = 201;
-                response.response = repoRes.response;
-            }
-            return response
-        }
+    return true;
+  }
 
+  async GetAll(pageNumber: number, pageSize: number) {
+    return await this.repo.GetAll(pageNumber, pageSize);
+  }
 }

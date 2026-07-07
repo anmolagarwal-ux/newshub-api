@@ -1,0 +1,9 @@
+{
+  "Activity_Log_List_Success": "Les journaux d'activité ont été récupérés avec succès",
+  "Activity_Log_Created": "Journal d'activité créé avec succès",
+
+  "Activity_Log_List_Failed": "Échec de la récupération des journaux d'activité",
+  "Activity_Log_Create_Failed": "Échec de la création du journal d'activité",
+
+  "Activity_Log_Not_Found": "Journal d'activité introuvable"
+}

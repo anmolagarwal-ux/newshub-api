@@ -1,0 +1,9 @@
+{
+  "Activity_Log_List_Success": "गतिविधि लॉग सफलतापूर्वक प्राप्त किए गए",
+  "Activity_Log_Created": "गतिविधि लॉग सफलतापूर्वक बनाया गया",
+
+  "Activity_Log_List_Failed": "गतिविधि लॉग प्राप्त करने में विफल",
+  "Activity_Log_Create_Failed": "गतिविधि लॉग बनाने में विफल",
+
+  "Activity_Log_Not_Found": "गतिविधि लॉग नहीं मिला"
+}

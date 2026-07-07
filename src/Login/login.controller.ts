@@ -6,7 +6,7 @@ import {
 
 import { LoginService } from './login.service';
 import { loginRequest } from './dto/login.dto';
-import { Message } from 'src/decorator/message.decorator';
+import { Message } from '../decorator/message.decorator';
 
 @Controller('login')
 export class LoginController {

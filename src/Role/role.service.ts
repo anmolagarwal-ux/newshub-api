@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
+import { CustomResponse } from '../modal/CustomResponse.dto';
 import { CreateRoleDTO, GetAllRole } from './dto/role.dto';
 import { RoleRepository } from './role.repository';
 

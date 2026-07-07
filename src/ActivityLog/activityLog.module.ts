@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from 'database/database.module';
 import { ActivityLogController } from './activityLog.controller';
 import { ActivityLogService } from './activityLog.service';
 import { ActivityLogRepository } from './activityLog.repository';
+import { DatabaseModule } from '../../database/database.module';
 
 @Module({
 

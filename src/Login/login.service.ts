@@ -1,9 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-
-import { AuthService } from 'auth/auth.service';
-import { ActivityLogService } from 'src/ActivityLog/activityLog.service';
 import { loginRequest } from './dto/login.dto';
 import { loginRepository } from './login.respository';
+import { AuthService } from '../../auth/auth.service';
+import { ActivityLogService } from '../ActivityLog/activityLog.service';
 
 @Injectable()
 export class LoginService {

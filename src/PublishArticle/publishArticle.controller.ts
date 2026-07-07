@@ -2,7 +2,7 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query, Req, UseGuards 
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { PublishArticleService } from './publishArticle.service';
 import { CreateArticleDTO, UpdateArticleDTO } from './dto/publishArticle.dto';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import {
   UploadedFile,
   UseInterceptors,

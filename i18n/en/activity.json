@@ -1,0 +1,9 @@
+{
+  "Activity_Log_List_Success": "Activity logs fetched successfully",
+  "Activity_Log_Created": "Activity log created successfully",
+
+  "Activity_Log_List_Failed": "Failed to fetch activity logs",
+  "Activity_Log_Create_Failed": "Failed to create activity log",
+
+  "Activity_Log_Not_Found": "Activity log not found"
+}

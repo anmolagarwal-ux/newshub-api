@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from 'database/database.module';
 import { AuthModule } from '../auth/auth.module';
 import { LoginModule } from './Login/login.module';
 import { ContactUsModule } from './ContactUs/contactUs.module';
@@ -16,6 +15,7 @@ import path from 'path';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { TransformInterceptor } from './interceptor/transform.interceptor';
 import { AllExceptionFilter } from './decorator/all-exception.filter';
+import { DatabaseModule } from '../database/database.module';
 
 @Module({
   

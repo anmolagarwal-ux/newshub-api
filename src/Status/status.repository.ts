@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from 'database/database.service';
 import { Status } from './dto/staus.dto';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
+import { CustomResponse } from '../modal/CustomResponse.dto';
+import { DatabaseService } from '../../database/database.service';
 @Injectable()
 export class StatusRepository {
 

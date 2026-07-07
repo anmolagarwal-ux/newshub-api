@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from '../../database/database.service';
-import { CustomResponse, DBCustomResponse } from 'src/modal/CustomResponse.dto';
+import { CustomResponse, DBCustomResponse } from '../modal/CustomResponse.dto';
 import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
 
 @Injectable()

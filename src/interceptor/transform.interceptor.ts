@@ -9,7 +9,7 @@ import { Reflector } from '@nestjs/core';
 import { Observable, map } from 'rxjs';
 import { I18nService } from 'nestjs-i18n';
 import { HTTP_CODE_METADATA } from '@nestjs/common/constants';
-import { IMessage, SUCCESS_MSG } from 'src/decorator/message.decorator';
+import { IMessage, SUCCESS_MSG } from '../decorator/message.decorator';
 
 @Injectable()
 export class TransformInterceptor implements NestInterceptor<any> {

@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { UserRepository } from './user.repository';
-import { AuthService } from 'auth/auth.service';
-
+import { AuthService } from '../../auth/auth.service';
+import { CustomResponse } from '../modal/CustomResponse.dto';
 @Injectable()
 export class UsersService {
   constructor(private readonly repo: UserRepository,

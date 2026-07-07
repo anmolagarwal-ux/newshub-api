@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DatabaseService } from '../../database/database.service';
-import { CustomResponse } from 'src/modal/CustomResponse.dto';
+import { CustomResponse } from '../modal/CustomResponse.dto';
 import { GetAllDashboard } from './dto/dashboard.dto';
 
 
