@@ -11,8 +11,14 @@ import { DashboardModule } from './Dashboard/dashboard.module';
 import { StatusModule } from './Status/status.module';
 import { PublishArticleModule } from './PublishArticle/publishArticle.module';
 import { ArticleModule } from './Article/article.module';
+import { AcceptLanguageResolver, I18nModule, QueryResolver } from 'nestjs-i18n';
+import path from 'path';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
+import { TransformInterceptor } from './interceptor/transform.interceptor';
+import { AllExceptionFilter } from './decorator/all-exception.filter';
 
 @Module({
+  
   imports: [
     DatabaseModule ,
     AuthModule ,
@@ -25,11 +31,27 @@ import { ArticleModule } from './Article/article.module';
     StatusModule,
     PublishArticleModule,
     ArticleModule,
-    
+    I18nModule.forRoot({
+      fallbackLanguage: 'en',
+      loaderOptions: {
+        path: path.resolve(__dirname, '../../i18n'),
+        watch: true,
+      },
+      resolvers: [
+        { use: QueryResolver, options: ['lang'] },
+        AcceptLanguageResolver,
+      ],
+    }),
     ConfigModule.forRoot({
       isGlobal: true,
     })],
   controllers: [ ],
-  providers: [],
+  providers: [{
+      provide: APP_INTERCEPTOR,
+      useClass: TransformInterceptor,
+    },{
+    provide: APP_FILTER,
+    useClass: AllExceptionFilter,
+  },],
 })
 export class AppModule {}
