@@ -1,0 +1,21 @@
+{
+  "List_Success": "Article list fetched successfully",
+  "Found": "Article found",
+  "Not_Found": "Article not found",
+
+  "Created": "Article created successfully",
+  "Updated": "Article updated successfully",
+  "Deleted": "Article deleted successfully",
+
+  "Create_Failed": "Failed to create article",
+  "Update_Failed": "Failed to update article",
+  "Delete_Failed": "Failed to delete article",
+
+  "List_Failed": "Failed to fetch articles",
+
+  "Title_Required": "Article title is required",
+  "Category_Required": "Article category is required",
+
+  "Invalid": "Invalid article",
+  "Already_Exists": "Article already exists"
+}

@@ -24,11 +24,11 @@ export class PublishArticleService {
 
     if (!response.isSuccess) {
       throw new BadRequestException(
-        'publish-article.Create_Failed'
+        'publish.Create_Failed'
       );
     }
 
-    response.message = 'publish-article.Created';
+    response.message = 'publish.Created';
 
     return response;
   }
@@ -54,11 +54,11 @@ export class PublishArticleService {
 
     if (!response.isSuccess) {
       throw new BadRequestException(
-        'publish-article.List_Failed'
+        'publish.List_Failed'
       );
     }
 
-    response.message = 'publish-article.List_Success';
+    response.message = 'publish.List_Success';
 
     return response;
   }
@@ -70,11 +70,11 @@ export class PublishArticleService {
 
     if (!response.isSuccess || !response.response) {
       throw new NotFoundException(
-        'publish-article.Not_Found'
+        'publish.Not_Found'
       );
     }
 
-    response.message = 'publish-article.Found';
+    response.message = 'publish.Found';
 
     return response;
   }
@@ -86,11 +86,11 @@ export class PublishArticleService {
 
     if (!response.isSuccess) {
       throw new BadRequestException(
-        'publish-article.Update_Failed'
+        'publish.Update_Failed'
       );
     }
 
-    response.message = 'publish-article.Updated';
+    response.message = 'publish.Updated';
 
     return response;
   }
@@ -102,11 +102,11 @@ export class PublishArticleService {
 
     if (!response.isSuccess) {
       throw new BadRequestException(
-        'publish-article.Delete_Failed'
+        'publish.Delete_Failed'
       );
     }
 
-    response.message = 'publish-article.Deleted';
+    response.message = 'publish.Deleted';
 
     return response;
   }
