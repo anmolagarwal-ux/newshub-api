@@ -1,0 +1,14 @@
+{
+  "User_Created": "User created successfully",
+  "User_Updated": "User updated successfully",
+  "User_Deleted": "User deleted successfully",
+
+  "User_List_Success": "Users fetched successfully",
+  "User_Detail_Success": "User details fetched successfully",
+
+  "User_Create_Failed": "Failed to create user",
+  "User_Update_Failed": "Failed to update user",
+  "User_Delete_Failed": "Failed to delete user",
+
+  "User_Not_Found": "User not found"
+}

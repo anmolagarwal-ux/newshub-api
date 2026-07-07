@@ -1,110 +1,69 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+
+import {
+  CreateUserDto,
+  UpdateUserDto,
+} from './dto/user.dto';
+
 import { UserRepository } from './user.repository';
 import { AuthService } from '../../auth/auth.service';
-import { CustomResponse } from '../modal/CustomResponse.dto';
+
 @Injectable()
 export class UsersService {
-  constructor(private readonly repo: UserRepository,
-    private readonly authService: AuthService
-
+  constructor(
+    private readonly repo: UserRepository,
+    private readonly authService: AuthService,
   ) {}
-  
-  async GetAll() {
-    const response = new CustomResponse<GetAllUserDto>();
-    const repoRes = await this.repo.GetAll()
 
-    if(!repoRes.isSuccess){
-        response.isSuccess = false;
-        response.message = 'Data fetch failed';
-        response.statusCode = 400;
-    }
-    else{
-        
-        response.isSuccess = true;
-        response.message = 'Successfull created a record';
-        response.statusCode = 201;
-        response.response = repoRes.response;
-    }
-    return response
+  async GetAll() {
+    return this.repo.GetAll();
   }
 
   async GetUserById(id: number) {
-    const response = new CustomResponse<GetAllUserDto>();
-    const repoRes = await this.repo.GetById(id)
+    const user = await this.repo.GetById(id);
 
-    if(!repoRes.isSuccess){
-        response.isSuccess = false;
-        response.message = 'Data fetch failed';
-        response.statusCode = 400;
+    if (!user) {
+      throw new NotFoundException('user.User_Not_Found');
     }
-    else{
-        
-        response.isSuccess = true;
-        response.message = 'Successfull created a record';
-        response.statusCode = 201;
-        response.response = repoRes.response;
-    }
-    return response
+
+    return user;
   }
 
   async Create(dto: CreateUserDto) {
-    const response = new CustomResponse<any>();
-    dto.password = await this.authService.hashPassword(dto.password) as unknown as string;
+    dto.password = await this.authService.hashPassword(dto.password);
 
-    const repoRes = await this.repo.Create(dto)
+    const result = await this.repo.Create(dto);
 
-
-    if(!repoRes.isSuccess){
-        response.isSuccess = false;
-        response.message = 'Data not saved';
-        response.statusCode = 400;
-        response.response = "";
+    if (!result?.isSuccess) {
+      throw new BadRequestException('user.User_Create_Failed');
     }
-    else{
-        
-        response.isSuccess = true;
-        response.message = 'Successfull created a record';
-        response.statusCode = 201;
-        response.response = 'Created';
-    }
-    return response
+
+    return result;
   }
 
   async Update(dto: UpdateUserDto) {
-    const response = new CustomResponse<any>();
-    dto.password = await this.authService.hashPassword(dto.password) as unknown as string;
-    const repoRes = await this.repo.Update(dto);
-      if(!repoRes.isSuccess){
-        response.isSuccess = false;
-        response.message = 'Data not saved';
-        response.statusCode = 400;
-        response.response = "";
-      }
-      else{
-        response.isSuccess = true;
-        response.message = 'Successfull updated a record';
-        response.statusCode = 201;
-        response.response = 'Updated';
-      }
-    return response;
+    dto.password = await this.authService.hashPassword(dto.password);
+
+    const result = await this.repo.Update(dto);
+
+    if (!result?.isSuccess) {
+      throw new BadRequestException('user.User_Update_Failed');
+    }
+
+    return result;
   }
 
   async Delete(id: number) {
-    const response = new CustomResponse<any>();
-    const repoRes = await this.repo.Delete(id);
-      if(!repoRes.isSuccess){
-        response.isSuccess = false;
-        response.message = 'Data not saved';
-        response.statusCode = 400;
-        response.response = "";
-      }
-      else{
-        response.isSuccess = true;
-        response.message = 'Successfull deleted a record';
-        response.statusCode = 201;
-        response.response = 'Deleted';
-      }
-      return response;
+    const result = await this.repo.Delete(id);
+
+    if (!result?.isSuccess) {
+      throw new BadRequestException('user.User_Delete_Failed');
     }
+
+    return result;
+  }
 }

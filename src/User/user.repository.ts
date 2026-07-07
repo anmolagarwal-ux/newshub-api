@@ -1,111 +1,96 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+
 import { DatabaseService } from '../../database/database.service';
-import { CustomResponse, DBCustomResponse } from '../modal/CustomResponse.dto';
-import { CreateUserDto, GetAllUserDto, UpdateUserDto } from './dto/user.dto';
+import {
+  CreateUserDto,
+  UpdateUserDto,
+} from './dto/user.dto';
 
 @Injectable()
 export class UserRepository {
   constructor(private readonly dbService: DatabaseService) {}
 
-  async Create(dto: CreateUserDto): Promise<DBCustomResponse> {
+  async Create(dto: CreateUserDto) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new DBCustomResponse();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool
-            .request()
-            .input('full_name', dto.full_name)
-            .input('email', dto.email)
-            .input('roleid', dto.role_id)
-            .input('password', dto.password)
-            .execute('sp_User_Create');
-        result.recordset.map((data) => {
-        res.isSuccess = data.isSuccess;
-        res.message = data.message;
-      });
-      return res;
-    }
-    catch (exception) {
-      return res;
+      const result = await pool
+        .request()
+        .input('full_name', dto.full_name)
+        .input('email', dto.email)
+        .input('roleid', dto.role_id)
+        .input('password', dto.password)
+        .execute('sp_User_Create');
+
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async GetAll(): Promise<CustomResponse<GetAllUserDto>> {
+  async GetAll() {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new CustomResponse<GetAllUserDto>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request().execute('sp_User_GetAll');
-        res.response = result.recordset;
-      res.isSuccess = true;
-      res.statusCode = 200;
-      res.message = 'Successful';
-      return res;
-    }
-    catch (exception) {
-      return res;
+      const result = await pool
+        .request()
+        .execute('sp_User_GetAll');
+
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async GetById(id: number): Promise<CustomResponse<GetAllUserDto>> {
+  async GetById(id: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new CustomResponse<GetAllUserDto>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request().input('id', id).execute('sp_Role_GetById');
-        res.response = result.recordset[0];
-        res.isSuccess = true;
-        res.statusCode = 200;
-        res.message = 'Successful';
-        return res;
-    }
-    catch (exception) {
-      return res;
+      const result = await pool
+        .request()
+        .input('id', id)
+        .execute('sp_User_GetById');
+
+      return result.recordset[0] ?? null;
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async Update(dto: UpdateUserDto): Promise<DBCustomResponse> {
+  async Update(dto: UpdateUserDto) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new DBCustomResponse();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool
-            .request()
-            .input('full_name', dto.full_name)
-            .input('email', dto.email)
-            .input('roleid', dto.role_id)
-            .input('password', dto.password)
-            .input('id', dto.id)
-            .execute('sp_User_Update');
-        result.recordset.map((data) => {
-        res.isSuccess = data.isSuccess;
-        res.message = data.message;
-      });
-      return res;
-    }
-    catch (exception) {
-      return res;
+      const result = await pool
+        .request()
+        .input('full_name', dto.full_name)
+        .input('email', dto.email)
+        .input('roleid', dto.role_id)
+        .input('password', dto.password)
+        .input('id', dto.id)
+        .execute('sp_User_Update');
+
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async Delete(id: number): Promise<DBCustomResponse> {
+  async Delete(id: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new DBCustomResponse();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool
-            .request()
-            .input('id', id)
-            .execute('sp_User_Delete');
-        result.recordset.map((data) => {
-        res.isSuccess = data.isSuccess;
-        res.message = data.message;
-      });
-    }
-    catch (exception) {
-    }
+      const result = await pool
+        .request()
+        .input('id', id)
+        .execute('sp_User_Delete');
 
-    return res;
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
+    }
   }
-
 }
