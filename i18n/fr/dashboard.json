@@ -1,0 +1,7 @@
+{
+  "Category_Detail_Success": "Les détails des catégories ont été récupérés avec succès",
+  "Status_Detail_Success": "Les détails des statuts ont été récupérés avec succès",
+
+  "Category_Detail_Failed": "Échec de la récupération des détails des catégories",
+  "Status_Detail_Failed": "Échec de la récupération des détails des statuts"
+}

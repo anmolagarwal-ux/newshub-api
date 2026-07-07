@@ -1,45 +1,41 @@
-import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../../database/database.service';
-import { CustomResponse } from '../modal/CustomResponse.dto';
-import { GetAllDashboard } from './dto/dashboard.dto';
+import {
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 
+import { DatabaseService } from '../../database/database.service';
 
 @Injectable()
 export class DashboardRepository {
-  constructor(private readonly dbService: DatabaseService) {}
+  constructor(
+    private readonly dbService: DatabaseService,
+  ) {}
 
-  async GetAllCategoryDetail(): Promise<CustomResponse<GetAllDashboard>> {
+  async GetAllCategoryDetail() {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new CustomResponse<GetAllDashboard>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request().execute('sp_DashboardCategory_GetAll');
-        res.response = result.recordset;
-        res.isSuccess = true;
-        res.statusCode = 200;
-        res.message = 'Successful';
-        return res;
-    }
-    catch (exception) {
-      return res;
-    }
-  }
+      const result = await pool
+        .request()
+        .execute('sp_DashboardCategory_GetAll');
 
-  async GetAllStatusDetail(): Promise<CustomResponse<GetAllDashboard>> {
-
-    const res = new CustomResponse<GetAllDashboard>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request().execute('sp_DashboardStatusArticle_GetAll');
-        res.response = result.recordset;
-        res.isSuccess = true;
-        res.statusCode = 200;
-        res.message = 'Successful';
-        return res;
-    }
-    catch (exception) {
-      return res;
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
+  async GetAllStatusDetail() {
+    try {
+      const pool = this.dbService.getPool();
+
+      const result = await pool
+        .request()
+        .execute('sp_DashboardStatusArticle_GetAll');
+
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
+    }
+  }
 }

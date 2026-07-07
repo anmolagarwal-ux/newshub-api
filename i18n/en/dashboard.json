@@ -1,0 +1,7 @@
+{
+  "Category_Detail_Success": "Category details fetched successfully",
+  "Status_Detail_Success": "Status details fetched successfully",
+
+  "Category_Detail_Failed": "Failed to fetch category details",
+  "Status_Detail_Failed": "Failed to fetch status details"
+}
