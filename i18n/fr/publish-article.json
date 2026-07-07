@@ -1,0 +1,21 @@
+{
+  "Article_List_Success": "Liste des articles récupérée avec succès",
+  "Article_Found": "Article trouvé",
+  "Article_Not_Found": "Article introuvable",
+
+  "Article_Created": "Article créé avec succès",
+  "Article_Updated": "Article mis à jour avec succès",
+  "Article_Deleted": "Article supprimé avec succès",
+
+  "Article_Create_Failed": "Échec de la création de l'article",
+  "Article_Update_Failed": "Échec de la mise à jour de l'article",
+  "Article_Delete_Failed": "Échec de la suppression de l'article",
+
+  "Article_List_Failed": "Échec de la récupération des articles",
+
+  "Article_Title_Required": "Le titre de l'article est requis",
+  "Article_Category_Required": "La catégorie de l'article est requise",
+
+  "Article_Invalid": "Article invalide",
+  "Article_Already_Exists": "L'article existe déjà"
+}

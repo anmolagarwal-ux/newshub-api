@@ -1,0 +1,21 @@
+{
+  "Article_List_Success": "Article list fetched successfully",
+  "Article_Found": "Article found",
+  "Article_Not_Found": "Article not found",
+
+  "Article_Created": "Article created successfully",
+  "Article_Updated": "Article updated successfully",
+  "Article_Deleted": "Article deleted successfully",
+
+  "Article_Create_Failed": "Failed to create article",
+  "Article_Update_Failed": "Failed to update article",
+  "Article_Delete_Failed": "Failed to delete article",
+
+  "Article_List_Failed": "Failed to fetch articles",
+
+  "Article_Title_Required": "Article title is required",
+  "Article_Category_Required": "Article category is required",
+
+  "Article_Invalid": "Invalid article",
+  "Article_Already_Exists": "Article already exists"
+}

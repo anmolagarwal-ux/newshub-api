@@ -1,0 +1,21 @@
+{
+  "Article_List_Success": "लेख सूची सफलतापूर्वक प्राप्त की गई",
+  "Article_Found": "लेख मिल गया",
+  "Article_Not_Found": "लेख नहीं मिला",
+
+  "Article_Created": "लेख सफलतापूर्वक बनाया गया",
+  "Article_Updated": "लेख सफलतापूर्वक अपडेट किया गया",
+  "Article_Deleted": "लेख सफलतापूर्वक हटाया गया",
+
+  "Article_Create_Failed": "लेख बनाने में विफल",
+  "Article_Update_Failed": "लेख अपडेट करने में विफल",
+  "Article_Delete_Failed": "लेख हटाने में विफल",
+
+  "Article_List_Failed": "लेख सूची प्राप्त करने में विफल",
+
+  "Article_Title_Required": "लेख का शीर्षक आवश्यक है",
+  "Article_Category_Required": "लेख की श्रेणी आवश्यक है",
+
+  "Article_Invalid": "अमान्य लेख",
+  "Article_Already_Exists": "लेख पहले से मौजूद है"
+}
