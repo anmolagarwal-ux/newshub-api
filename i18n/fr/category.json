@@ -1,19 +1,25 @@
 {
-  "Category_List_Success": "Liste des catégories récupérée avec succès",
-  "Category_Found": "Catégorie trouvée",
-  "Category_Not_Found": "Catégorie introuvable",
+  "List_Success": "La liste des catégories a été récupérée avec succès",
+  "Detail_Success": "Catégorie trouvée",
+  "Not_Found": "Catégorie introuvable",
 
-  "Category_Created": "Catégorie créée avec succès",
-  "Category_Updated": "Catégorie mise à jour avec succès",
-  "Category_Deleted": "Catégorie supprimée avec succès",
+  "Created": "Catégorie créée avec succès",
+  "Updated": "Catégorie mise à jour avec succès",
+  "Deleted": "Catégorie supprimée avec succès",
 
-  "Category_Create_Failed": "Échec de la création de la catégorie",
-  "Category_Update_Failed": "Échec de la mise à jour de la catégorie",
-  "Category_Delete_Failed": "Échec de la suppression de la catégorie",
+  "Create_Failed": "Échec de la création de la catégorie",
+  "Update_Failed": "Échec de la mise à jour de la catégorie",
+  "Delete_Failed": "Échec de la suppression de la catégorie",
 
-  "Category_List_Failed": "Échec de la récupération des catégories",
-  "Category_Fetch_Failed": "Échec de la récupération de la catégorie",
+  "List_Failed": "Échec de la récupération des catégories",
+  "Fetch_Failed": "Échec de la récupération de la catégorie",
 
-  "Category_Already_Exists": "La catégorie existe déjà",
+  "Name_Required": "Le nom de la catégorie est requis",
+  "Created_By_Required": "Le créateur est requis",
+  "Description_Invalid": "La description de la catégorie doit être une chaîne",
+  "Slug_Invalid": "Le slug de la catégorie doit être une chaîne",
+  "Id_Required": "L'identifiant de la catégorie est requis",
+
+  "Already_Exists": "La catégorie existe déjà",
   "Invalid_Category": "Catégorie invalide"
 }

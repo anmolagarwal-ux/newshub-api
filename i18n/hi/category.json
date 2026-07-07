@@ -1,19 +1,25 @@
 {
-  "Category_List_Success": "श्रेणियों की सूची सफलतापूर्वक प्राप्त हुई",
-  "Category_Found": "श्रेणी मिल गई",
-  "Category_Not_Found": "श्रेणी नहीं मिली",
+  "List_Success": "श्रेणी सूची सफलतापूर्वक प्राप्त की गई",
+  "Detail_Success": "श्रेणी मिल गई",
+  "Not_Found": "श्रेणी नहीं मिली",
 
-  "Category_Created": "श्रेणी सफलतापूर्वक बनाई गई",
-  "Category_Updated": "श्रेणी सफलतापूर्वक अपडेट की गई",
-  "Category_Deleted": "श्रेणी सफलतापूर्वक हटाई गई",
+  "Created": "श्रेणी सफलतापूर्वक बनाई गई",
+  "Updated": "श्रेणी सफलतापूर्वक अपडेट की गई",
+  "Deleted": "श्रेणी सफलतापूर्वक हटाई गई",
 
-  "Category_Create_Failed": "श्रेणी बनाने में विफल",
-  "Category_Update_Failed": "श्रेणी अपडेट करने में विफल",
-  "Category_Delete_Failed": "श्रेणी हटाने में विफल",
+  "Create_Failed": "श्रेणी बनाने में विफल",
+  "Update_Failed": "श्रेणी अपडेट करने में विफल",
+  "Delete_Failed": "श्रेणी हटाने में विफल",
 
-  "Category_List_Failed": "श्रेणियों की सूची प्राप्त करने में विफल",
-  "Category_Fetch_Failed": "श्रेणी प्राप्त करने में विफल",
+  "List_Failed": "श्रेणियां प्राप्त करने में विफल",
+  "Fetch_Failed": "श्रेणी प्राप्त करने में विफल",
 
-  "Category_Already_Exists": "श्रेणी पहले से मौजूद है",
+  "Name_Required": "श्रेणी का नाम आवश्यक है",
+  "Created_By_Required": "बनाने वाले की जानकारी आवश्यक है",
+  "Description_Invalid": "श्रेणी विवरण एक स्ट्रिंग होना चाहिए",
+  "Slug_Invalid": "श्रेणी स्लग एक स्ट्रिंग होना चाहिए",
+  "Id_Required": "श्रेणी आईडी आवश्यक है",
+
+  "Already_Exists": "श्रेणी पहले से मौजूद है",
   "Invalid_Category": "अमान्य श्रेणी"
 }
