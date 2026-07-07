@@ -1,29 +1,27 @@
-import { Injectable } from '@nestjs/common';
-import { Status } from './dto/staus.dto';
-import { CustomResponse } from '../modal/CustomResponse.dto';
+import {
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+
 import { DatabaseService } from '../../database/database.service';
+
 @Injectable()
 export class StatusRepository {
+  constructor(
+    private readonly dbService: DatabaseService,
+  ) {}
 
-    constructor(
-        private readonly dbService: DatabaseService
-    ) { }
+  async GetAll() {
+    try {
+      const pool = this.dbService.getPool();
 
+      const result = await pool
+        .request()
+        .execute('sp_Status_GetAll');
 
-    async GetAll() {
-        const res = new CustomResponse<Status>();
-        const pool = this.dbService.getPool();
-        try {
-            const result = await pool.request().execute('sp_Status_GetAll');
-            res.response = result.recordset;
-            res.isSuccess = true;
-            res.statusCode = 200;
-            res.message = 'Successful';
-            return res;
-        }
-        catch (exception) {
-            return res;
-        }
-
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
     }
+  }
 }
