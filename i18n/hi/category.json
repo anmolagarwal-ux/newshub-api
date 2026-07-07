@@ -1,0 +1,19 @@
+{
+  "Category_List_Success": "श्रेणियों की सूची सफलतापूर्वक प्राप्त हुई",
+  "Category_Found": "श्रेणी मिल गई",
+  "Category_Not_Found": "श्रेणी नहीं मिली",
+
+  "Category_Created": "श्रेणी सफलतापूर्वक बनाई गई",
+  "Category_Updated": "श्रेणी सफलतापूर्वक अपडेट की गई",
+  "Category_Deleted": "श्रेणी सफलतापूर्वक हटाई गई",
+
+  "Category_Create_Failed": "श्रेणी बनाने में विफल",
+  "Category_Update_Failed": "श्रेणी अपडेट करने में विफल",
+  "Category_Delete_Failed": "श्रेणी हटाने में विफल",
+
+  "Category_List_Failed": "श्रेणियों की सूची प्राप्त करने में विफल",
+  "Category_Fetch_Failed": "श्रेणी प्राप्त करने में विफल",
+
+  "Category_Already_Exists": "श्रेणी पहले से मौजूद है",
+  "Invalid_Category": "अमान्य श्रेणी"
+}

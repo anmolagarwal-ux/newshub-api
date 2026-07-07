@@ -1,0 +1,19 @@
+{
+  "Category_List_Success": "Liste des catégories récupérée avec succès",
+  "Category_Found": "Catégorie trouvée",
+  "Category_Not_Found": "Catégorie introuvable",
+
+  "Category_Created": "Catégorie créée avec succès",
+  "Category_Updated": "Catégorie mise à jour avec succès",
+  "Category_Deleted": "Catégorie supprimée avec succès",
+
+  "Category_Create_Failed": "Échec de la création de la catégorie",
+  "Category_Update_Failed": "Échec de la mise à jour de la catégorie",
+  "Category_Delete_Failed": "Échec de la suppression de la catégorie",
+
+  "Category_List_Failed": "Échec de la récupération des catégories",
+  "Category_Fetch_Failed": "Échec de la récupération de la catégorie",
+
+  "Category_Already_Exists": "La catégorie existe déjà",
+  "Invalid_Category": "Catégorie invalide"
+}

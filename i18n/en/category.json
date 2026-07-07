@@ -1,0 +1,19 @@
+{
+  "Category_List_Success": "Category list fetched successfully",
+  "Category_Found": "Category found",
+  "Category_Not_Found": "Category not found",
+
+  "Category_Created": "Category created successfully",
+  "Category_Updated": "Category updated successfully",
+  "Category_Deleted": "Category deleted successfully",
+
+  "Category_Create_Failed": "Failed to create category",
+  "Category_Update_Failed": "Failed to update category",
+  "Category_Delete_Failed": "Failed to delete category",
+
+  "Category_List_Failed": "Failed to fetch categories",
+  "Category_Fetch_Failed": "Failed to fetch category",
+
+  "Category_Already_Exists": "Category already exists",
+  "Invalid_Category": "Invalid category"
+}

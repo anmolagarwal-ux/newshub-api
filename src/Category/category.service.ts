@@ -1,77 +1,64 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
+
 import { CustomResponse } from 'src/modal/CustomResponse.dto';
 import { CreateCategory, UpdateCategory } from './dto/category.dto';
 import { CategoryRepository } from './category.repository';
 
 @Injectable()
 export class CategoryService {
-constructor(private readonly repo: CategoryRepository) {}
-  async GetAll(): Promise<CustomResponse<any>> {
-    return await this.repo.GetAll();
+  constructor(private readonly repo: CategoryRepository) {}
+
+  async GetAll(){
+    return this.repo.GetAll();
   }
 
-  async GetById(id:number): Promise<CustomResponse<any>> {
-    return await this.repo.GetById(id);
-  }
+  async GetById(id: number){
+    const response = await this.repo.GetById(id);
 
-  async Create(dto:CreateCategory): Promise<CustomResponse<any>> {
-
-    const response = new CustomResponse<any>();
-    const repoRes = await this.repo.Create(dto);
-
-    if(repoRes.isSuccess){
-      response.isSuccess = true;
-      response.message = "Category created";
-      response.statusCode = 201;
-      response.response = repoRes.message;
-
+    if (!response.isSuccess) {
+      throw new NotFoundException('category.Not_Found');
     }
-    else {
-      response.isSuccess = false;
-      response.message = repoRes.message;
-      response.statusCode = 400;
-      response.response = repoRes.message;
-    }
+
     return response;
   }
 
-  async Update(dto:UpdateCategory): Promise<CustomResponse<any>> {
+  async Create(dto: CreateCategory){
+    const response = await this.repo.Create(dto);
 
-    const response = new CustomResponse<any>();
-    const repoRes = await this.repo.Update(dto);
+    if (!response.isSuccess) {
+      throw new BadRequestException('category.Create_Failed');
+    }
 
-    if(repoRes.isSuccess){
-      response.isSuccess = true;
-      response.message = "Category updated";
-      response.statusCode = 200;
-      response.response = repoRes.message;
-    }
-    else {
-      response.isSuccess = false;
-      response.message = repoRes.message;
-      response.statusCode = 400;
-      response.response = repoRes.message;
-    }
+    response.message = 'category.Created';
+
     return response;
   }
 
-  async Delete(id:number): Promise<CustomResponse<any>> {
+  async Update(dto: UpdateCategory){
+    const response = await this.repo.Update(dto);
 
-    const response = new CustomResponse<any>();
-    const repoRes = await this.repo.Delete(id);
+    if (!response.isSuccess) {
+      throw new BadRequestException('category.Update_Failed');
+    }
 
-    if(repoRes.isSuccess){
-      response.isSuccess = true;
-      response.message = "Category deleted";
-      response.statusCode = 201;
-      response.response = repoRes.message;
+    response.message = 'category.Updated';
+
+    return response;
+  }
+
+  async Delete(id: number){
+    const response = await this.repo.Delete(id);
+
+    if (!response.isSuccess) {
+      throw new BadRequestException('category.Delete_Failed');
     }
-    else {
-      response.isSuccess = false;
-      response.message = repoRes.message;
-      response.statusCode = 400;
-      response.response = repoRes.message;
-    }
+
+    response.message = 'category.Deleted';
+
     return response;
   }
 }

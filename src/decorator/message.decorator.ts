@@ -3,7 +3,7 @@ import { Request } from 'express';
 
 export const SUCCESS_MSG = 'SUCCESS_MSG';
 
-export type MessageResolver = (req: Request, result: unknown) => string;
+export type MessageResolver = (req: Request, response: unknown) => string;
 
 export type IMessage = string | MessageResolver;
 

@@ -1,153 +1,86 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
+
 import { DatabaseService } from '../../database/database.service';
 import { CreateCategory, UpdateCategory } from './dto/category.dto';
-import { CustomResponse, DBCustomResponse } from 'src/modal/CustomResponse.dto';
 
 @Injectable()
 export class CategoryRepository {
-
   constructor(private readonly dbService: DatabaseService) {}
 
-    async GetAll(): Promise<CustomResponse<any>> {
+  async GetAll() {
+    try {
+      const pool = this.dbService.getPool();
+      const result = await pool.request().execute('sp_Category_GetAll');
 
-        const res = new CustomResponse();
-        const pool = this.dbService.getPool();
-
-        try {
-            const result = await pool.request().execute('sp_Category_GetAll');
-
-            res.isSuccess = true;
-            res.message = "Category list fetched successfully";
-            res.response = result.recordset;
-            res.statusCode = 200;
-
-            return res;
-        } 
-        catch (exception) {
-
-            res.statusCode = 400;
-            res.isSuccess = false;
-            res.message = "An error occurred while fetching categories";
-
-            return res;
-        }
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
     }
+  }
 
-    async GetById(id: number): Promise<CustomResponse<any>> {
+  async GetById(id: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-        const res = new CustomResponse();
-        const pool = this.dbService.getPool();
+      const result = await pool
+        .request()
+        .input('category_id', id)
+        .execute('sp_Category_GetById');
 
-        try {
-
-            const result = await pool
-            .request()
-            .input('category_id', id)
-            .execute('sp_Category_GetById');
-
-
-            res.isSuccess = result.recordset.length > 0;
-            res.message = result.recordset.length > 0 ? "Category found" : "Category not found";
-            res.response = result.recordset[0];
-            res.statusCode = 200;
-
-            return res;
-
-        } catch(exception) {
-
-            res.isSuccess = false;
-            res.message = "Error while fetching category";
-            res.statusCode = 400;
-
-            return res;
-        }
+      return result.recordset[0] ?? null;
+    } catch {
+      throw new InternalServerErrorException();
     }
+  }
 
-    async Create(dto: CreateCategory): Promise<DBCustomResponse> {
+  async Create(dto: CreateCategory) {
+    try {
+      const pool = this.dbService.getPool();
 
-        const res = new DBCustomResponse();
-        const pool = this.dbService.getPool();
+      const result = await pool
+        .request()
+        .input('category_name', dto.category_name)
+        .input('category_description', dto.category_description)
+        .input('category_slug', dto.category_slug)
+        .input('created_by', dto.created_by)
+        .execute('sp_Category_Create');
 
-        try {
-
-            const result = await pool
-            .request()
-            .input('category_name', dto.category_name)
-            .input('category_description', dto.category_description)
-            .input('category_slug', dto.category_slug)
-            .input('created_by', dto.created_by)
-            .execute('sp_Category_Create');
-
-
-            result.recordset.map((data) => {
-            res.isSuccess = data.isSuccess;
-            res.message = data.message;
-            });
-
-
-            return res;
-
-        } catch(exception) {
-
-            res.isSuccess = false;
-            res.message = "An error occurred while creating category";
-
-            return res;
-        }
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
+  }
 
-    async Update(dto: UpdateCategory): Promise<DBCustomResponse> {
+  async Update(dto: UpdateCategory) {
+    try {
+      const pool = this.dbService.getPool();
 
-        const res = new DBCustomResponse();
-        const pool = this.dbService.getPool();
+      const result = await pool
+        .request()
+        .input('category_id', dto.id)
+        .input('category_name', dto.category_name)
+        .input('category_description', dto.category_description)
+        .input('category_slug', dto.category_slug)
+        .execute('sp_Category_Update');
 
-        try {
-
-            const result = await pool
-            .request()
-            .input('category_name', dto.category_name)
-            .input('category_description', dto.category_description)
-            .input('category_slug', dto.category_slug)
-            .input('category_id', dto.id)
-            .execute('sp_Category_Update');
-
-            result.recordset.map((data) => {
-            res.isSuccess = data.isSuccess;
-            res.message = data.message;
-            });
-
-            return res;
-
-        } catch(exception) {
-
-            res.isSuccess = false;
-            res.message = "An error occurred while updating category";
-
-            return res;
-        }
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
+  }
 
-    async Delete(id:number): Promise<DBCustomResponse> {
+  async Delete(id: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-        const res = new DBCustomResponse();
-        const pool = this.dbService.getPool();
-        try {
+      const result = await pool
+        .request()
+        .input('category_id', id)
+        .execute('sp_Category_Delete');
 
-            const result = await pool.request().input('category_id', id).execute('sp_Category_Delete');
-
-            result.recordset.map((data) => {
-                res.isSuccess = data.isSuccess;
-                res.message = data.message;
-            });
-            return res;
-
-        } catch(exception) {
-
-            res.isSuccess = false;
-            res.message = "An error occurred while deleting category";
-
-            return res;
-        }
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
-
+  }
 }

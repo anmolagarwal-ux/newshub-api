@@ -17,9 +17,9 @@ export class TransformInterceptor implements NestInterceptor<any> {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
 
     return next.handle().pipe(
-      map((result) => {
-        if (result instanceof StreamableFile) {
-          return result;
+      map((response) => {
+        if (response instanceof StreamableFile) {
+          return response;
         }
         let MSG_CODE = this.$reflector.get<IMessage>(
           SUCCESS_MSG,
@@ -34,7 +34,7 @@ export class TransformInterceptor implements NestInterceptor<any> {
         let message = 'Success';
         if (MSG_CODE) {
           if (typeof MSG_CODE === 'function') {
-            MSG_CODE = MSG_CODE(context.switchToHttp().getRequest(), result);
+            MSG_CODE = MSG_CODE(context.switchToHttp().getRequest(), response);
           }
           const { i18nLang } = context.switchToHttp().getRequest();
           const msg = this.i18n.translate(MSG_CODE as string, {
@@ -44,7 +44,7 @@ export class TransformInterceptor implements NestInterceptor<any> {
             message = msg;
           }
         }
-        return { statusCode, message, result };
+        return { statusCode, message, response };
       }),
     );
   }
