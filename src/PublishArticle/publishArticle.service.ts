@@ -52,7 +52,7 @@ export class PublishArticleService {
       userId,
     );
 
-    if (!response.isSuccess) {
+    if (!response) {
       throw new BadRequestException(
         'publish.List_Failed'
       );
@@ -68,7 +68,7 @@ export class PublishArticleService {
 
     const response = await this.repo.GetById(id);
 
-    if (!response.isSuccess || !response.response) {
+    if (!response) {
       throw new NotFoundException(
         'publish.Not_Found'
       );
