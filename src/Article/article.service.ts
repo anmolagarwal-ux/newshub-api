@@ -1,52 +1,52 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import {
-    ArticleBySlugDto,
-    BreakingArticleDto,
-    FeaturedArticleDto,
-    TopArticleDto
+  ArticleBySlugDto,
+  BreakingArticleDto,
+  FeaturedArticleDto,
+  TopArticleDto,
 } from './dto/article.dto';
 import { ArticleRepository } from './article.repository';
 
 @Injectable()
 export class ArticleService {
+  constructor(
+    private readonly articleRepository: ArticleRepository,
+  ) {}
 
-    constructor(
-        private readonly articleRepository: ArticleRepository,
-    ) { }
+  async getBreakingArticles(): Promise<BreakingArticleDto[]> {
+    return this.articleRepository.getBreakingArticles();
+  }
 
-    async getBreakingArticles(): Promise<BreakingArticleDto[]> {
+  async getFeaturedArticles(): Promise<FeaturedArticleDto[]> {
+    return this.articleRepository.getFeaturedArticles();
+  }
 
-        return await this.articleRepository.getBreakingArticles();
+  async getTopArticles(): Promise<TopArticleDto[]> {
+    return this.articleRepository.getTopArticles();
+  }
 
+  async getArticles(
+    page: number,
+    pageSize: number,
+    search?: string,
+    categoryId?: number,
+  ) {
+    return this.articleRepository.getArticles(
+      page,
+      pageSize,
+      search,
+      categoryId,
+    );
+  }
+
+  async getArticleBySlug(dto: ArticleBySlugDto) {
+    const article = await this.articleRepository.getArticleBySlug(dto.slug);
+
+    if (!article) {
+      throw new NotFoundException('article.Article_Not_Found');
     }
 
-    async getFeaturedArticles(): Promise<FeaturedArticleDto[]> {
-
-        return await this.articleRepository.getFeaturedArticles();
-
-    }
-
-    async getTopArticles(): Promise<TopArticleDto[]> {
-
-        return await this.articleRepository.getTopArticles();
-
-    }
-
-    async getArticles(page: number, pageSize: number, search?: string, categoryId?: number) {
-
-        return await this.articleRepository.getArticles(page, pageSize, search, categoryId,);
-
-    }
-
-    async getArticleBySlug(
-        dto: ArticleBySlugDto,
-    ) {
-
-        return await this.articleRepository.getArticleBySlug(
-            dto.slug,
-        );
-
-    }
-
+    return article;
+  }
 }

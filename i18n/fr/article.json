@@ -1,0 +1,15 @@
+{
+  "Breaking_Articles_Success": "Les actualités de dernière minute ont été récupérées avec succès",
+  "Featured_Articles_Success": "Les articles en vedette ont été récupérés avec succès",
+  "Top_Articles_Success": "Les meilleurs articles ont été récupérés avec succès",
+  "Article_List_Success": "Les articles ont été récupérés avec succès",
+  "Article_Detail_Success": "L'article a été récupéré avec succès",
+
+  "Article_Not_Found": "Article introuvable",
+
+  "Breaking_Articles_Failed": "Échec de la récupération des actualités de dernière minute",
+  "Featured_Articles_Failed": "Échec de la récupération des articles en vedette",
+  "Top_Articles_Failed": "Échec de la récupération des meilleurs articles",
+  "Article_List_Failed": "Échec de la récupération des articles",
+  "Article_Detail_Failed": "Échec de la récupération de l'article"
+}

@@ -1,0 +1,15 @@
+{
+  "Breaking_Articles_Success": "ब्रेकिंग समाचार सफलतापूर्वक प्राप्त किए गए",
+  "Featured_Articles_Success": "फीचर्ड लेख सफलतापूर्वक प्राप्त किए गए",
+  "Top_Articles_Success": "शीर्ष लेख सफलतापूर्वक प्राप्त किए गए",
+  "Article_List_Success": "लेख सफलतापूर्वक प्राप्त किए गए",
+  "Article_Detail_Success": "लेख सफलतापूर्वक प्राप्त किया गया",
+
+  "Article_Not_Found": "लेख नहीं मिला",
+
+  "Breaking_Articles_Failed": "ब्रेकिंग समाचार प्राप्त करने में विफल",
+  "Featured_Articles_Failed": "फीचर्ड लेख प्राप्त करने में विफल",
+  "Top_Articles_Failed": "शीर्ष लेख प्राप्त करने में विफल",
+  "Article_List_Failed": "लेख प्राप्त करने में विफल",
+  "Article_Detail_Failed": "लेख प्राप्त करने में विफल"
+}
