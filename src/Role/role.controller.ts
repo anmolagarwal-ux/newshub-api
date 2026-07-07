@@ -1,66 +1,53 @@
 import {
- Controller,
- Post,
- Body,
- Get,
- Param,
- ParseIntPipe,
- UseGuards,
- Req
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  Req,
+  UseGuards,
 } from '@nestjs/common';
-import { CustomResponse } from '../modal/CustomResponse.dto';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
+
+import { Message } from '../decorator/message.decorator';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import { RoleService } from './role.service';
 import { CreateRoleDTO } from './dto/role.dto';
-import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
-
 
 @Controller('role')
 export class RoleController {
-    constructor(private readonly service: RoleService){}
+  constructor(private readonly service: RoleService) {}
 
-    @UseGuards(JwtAuthGuard)
-    @ApiBearerAuth()
-    @Post()async Create(
-        @Body()dto: CreateRoleDTO,
-        @Req() req: Request){
-        
-        const request = req as any;
-        const response = new CustomResponse<any>();
-        
-        dto.user_id = request.user.Id
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Post()
+  @Message('role.Role_Created')
+  async Create(
+    @Body() dto: CreateRoleDTO,
+    @Req() req: Request,
+  ) {
+    const request = req as any;
 
-        response.isSuccess = false;
-        response.response = {};
-        response.statusCode = 400;
-        
-        try{
-        if (dto.role_name == '') {
-            response.message = 'name is required';
-            return response;
-        }
-        else{
-            return this.service.Create(dto);
-        }
-    }
-    catch(ex){
+    dto.user_id = request.user.Id;
 
-    }
-        
-    }
+    return this.service.Create(dto);
+  }
 
-    @Get()
-    @UseGuards(JwtAuthGuard)
-    @ApiBearerAuth()
-    async GetAll(){
-        
-        return this.service.GetAll();
-    }
+  @UseGuards(JwtAuthGuard)
+  @ApiBearerAuth()
+  @Get()
+  @Message('role.Role_List_Success')
+  async GetAll() {
+    return this.service.GetAll();
+  }
 
-    @Get(':id')
-    @ApiOperation({ summary: 'Get a Role by id' })
-    getById(@Param('id', ParseIntPipe) id: number){
-        return this.service.GetById(id);
-    }
-
+  @Get(':id')
+  @Message('role.Role_Detail_Success')
+  @ApiOperation({ summary: 'Get a Role by id' })
+  async GetById(
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this.service.GetById(id);
+  }
 }

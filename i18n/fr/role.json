@@ -1,0 +1,11 @@
+{
+  "Role_Created": "Rôle créé avec succès",
+  "Role_List_Success": "Les rôles ont été récupérés avec succès",
+  "Role_Detail_Success": "Le rôle a été récupéré avec succès",
+
+  "Role_Create_Failed": "Échec de la création du rôle",
+  "Role_Update_Failed": "Échec de la mise à jour du rôle",
+  "Role_Delete_Failed": "Échec de la suppression du rôle",
+
+  "Role_Not_Found": "Rôle introuvable"
+}

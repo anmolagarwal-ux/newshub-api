@@ -1,0 +1,11 @@
+{
+  "Role_Created": "भूमिका सफलतापूर्वक बनाई गई",
+  "Role_List_Success": "भूमिकाएँ सफलतापूर्वक प्राप्त की गईं",
+  "Role_Detail_Success": "भूमिका सफलतापूर्वक प्राप्त की गई",
+
+  "Role_Create_Failed": "भूमिका बनाने में विफल",
+  "Role_Update_Failed": "भूमिका अपडेट करने में विफल",
+  "Role_Delete_Failed": "भूमिका हटाने में विफल",
+
+  "Role_Not_Found": "भूमिका नहीं मिली"
+}

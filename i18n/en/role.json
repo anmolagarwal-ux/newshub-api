@@ -1,0 +1,11 @@
+{
+  "Role_Created": "Role created successfully",
+  "Role_List_Success": "Roles fetched successfully",
+  "Role_Detail_Success": "Role fetched successfully",
+
+  "Role_Create_Failed": "Failed to create role",
+  "Role_Update_Failed": "Failed to update role",
+  "Role_Delete_Failed": "Failed to delete role",
+
+  "Role_Not_Found": "Role not found"
+}
