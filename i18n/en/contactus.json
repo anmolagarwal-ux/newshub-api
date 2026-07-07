@@ -1,0 +1,14 @@
+{
+  "Contact_Created": "Contact request submitted successfully",
+  "Contact_List_Success": "Contact requests fetched successfully",
+  "Contact_Detail_Success": "Contact request details fetched successfully",
+
+  "Name_Required": "Name is required",
+  "Email_Required": "Email is required",
+  "Invalid_Email": "Invalid email format",
+  "Message_Required": "Message is required",
+  "Subject_Required": "Subject is required",
+
+  "Contact_Create_Failed": "Failed to submit contact request",
+  "Contact_Fetch_Failed": "Failed to fetch contact requests"
+}

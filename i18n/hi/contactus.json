@@ -1,0 +1,14 @@
+{
+  "Contact_Created": "संपर्क अनुरोध सफलतापूर्वक भेजा गया",
+  "Contact_List_Success": "संपर्क अनुरोध सफलतापूर्वक प्राप्त किए गए",
+  "Contact_Detail_Success": "संपर्क अनुरोध विवरण सफलतापूर्वक प्राप्त किया गया",
+
+  "Name_Required": "नाम आवश्यक है",
+  "Email_Required": "ईमेल आवश्यक है",
+  "Invalid_Email": "अमान्य ईमेल प्रारूप",
+  "Message_Required": "संदेश आवश्यक है",
+  "Subject_Required": "विषय आवश्यक है",
+
+  "Contact_Create_Failed": "संपर्क अनुरोध भेजने में विफल",
+  "Contact_Fetch_Failed": "संपर्क अनुरोध प्राप्त करने में विफल"
+}

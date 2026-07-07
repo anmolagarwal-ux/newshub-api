@@ -1,0 +1,14 @@
+{
+  "Contact_Created": "La demande de contact a été envoyée avec succès",
+  "Contact_List_Success": "Les demandes de contact ont été récupérées avec succès",
+  "Contact_Detail_Success": "Les détails de la demande de contact ont été récupérés avec succès",
+
+  "Name_Required": "Le nom est requis",
+  "Email_Required": "L'e-mail est requis",
+  "Invalid_Email": "Format d'e-mail invalide",
+  "Message_Required": "Le message est requis",
+  "Subject_Required": "Le sujet est requis",
+
+  "Contact_Create_Failed": "Échec de l'envoi de la demande de contact",
+  "Contact_Fetch_Failed": "Échec de la récupération des demandes de contact"
+}

@@ -1,72 +1,63 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
+
 import { DatabaseService } from '../../database/database.service';
-import { CreateContactUsDTO, GetAllContactUs } from './dto/contactUs.Dto';
-import { CustomResponse, DBCustomResponse } from '../modal/CustomResponse.dto';
+import { CreateContactUsDTO } from './dto/contactUs.Dto';
 
 @Injectable()
 export class ContantUsRepository {
-  constructor(private readonly dbService: DatabaseService) {}
+  constructor(
+    private readonly dbService: DatabaseService,
+  ) {}
 
-  async Create(dto: CreateContactUsDTO): Promise<DBCustomResponse> {
+  async Create(dto: CreateContactUsDTO) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new DBCustomResponse();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool
-            .request()
-            .input('name', dto.name)
-            .input('email', dto.email)
-            .input('subject', dto.subject)
-            .input('message', dto.body)
-            .execute('sp_ContactUs_Create');
-        result.recordset.map((data) => {
-        res.isSuccess = data.isSuccess;
-        res.message = data.message;
-      });
-      return res;
-    }
-    catch (exception) {
-      
-        return res;
+      const result = await pool
+        .request()
+        .input('name', dto.name)
+        .input('email', dto.email)
+        .input('subject', dto.subject)
+        .input('message', dto.body)
+        .execute('sp_ContactUs_Create');
+
+      return result.recordset[0];
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async GetAll(pageNumber, pageSize): Promise<CustomResponse<GetAllContactUs>> {
+  async GetAll(pageNumber: number, pageSize: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new CustomResponse<GetAllContactUs>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request()
-        .input('pageNumber',pageNumber).input('pageSize',pageSize)
+      const result = await pool
+        .request()
+        .input('pageNumber', pageNumber)
+        .input('pageSize', pageSize)
         .execute('sp_ContactUs_GetAll');
-        res.response = result.recordset;
-      res.isSuccess = true;
-      res.statusCode = 200;
-      res.message = 'Successful';
-      return res;
-    }
-    catch (exception) {
-      
-      return res;
+
+      return result.recordset;
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
 
-  async GetById(id: number): Promise<CustomResponse<GetAllContactUs>> {
+  async GetById(id: number) {
+    try {
+      const pool = this.dbService.getPool();
 
-    const res = new CustomResponse<GetAllContactUs>();
-    const pool = this.dbService.getPool();
-    try{
-        const result = await pool.request().input('id', id).execute('sp_ContactUs_GetById');
-        res.response = result.recordset[0];
-        res.isSuccess = true;
-        res.statusCode = 200;
-        res.message = 'Successful';
-        return res;
-    }
-    catch (exception) {
-      
-      return res;
+      const result = await pool
+        .request()
+        .input('id', id)
+        .execute('sp_ContactUs_GetById');
+
+      return result.recordset[0] ?? null;
+    } catch {
+      throw new InternalServerErrorException();
     }
   }
-
 }
