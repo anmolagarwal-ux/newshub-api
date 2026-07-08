@@ -17,7 +17,7 @@ export class CategoryService {
   async GetById(id: number){
     const response = await this.repo.GetById(id);
 
-    if (!response.isSuccess) {
+    if (!response) {
       throw new NotFoundException('category.Not_Found');
     }
 
