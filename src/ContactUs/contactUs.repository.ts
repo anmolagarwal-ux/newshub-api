@@ -1,6 +1,6 @@
 import {
   Injectable,
-  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
@@ -26,7 +26,7 @@ export class ContantUsRepository {
 
       return result.recordset[0];
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('contactus.Database_Error');
     }
   }
 
@@ -42,7 +42,7 @@ export class ContantUsRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('contactus.Database_Error');
     }
   }
 
@@ -57,7 +57,7 @@ export class ContantUsRepository {
 
       return result.recordset[0] ?? null;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('contactus.Database_Error');
     }
   }
 }

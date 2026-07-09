@@ -1,6 +1,6 @@
 import {
   Injectable,
-  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
@@ -21,7 +21,7 @@ export class StatusRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('status.Database_Error');
     }
   }
 }

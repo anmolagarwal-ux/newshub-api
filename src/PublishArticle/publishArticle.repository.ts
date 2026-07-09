@@ -1,6 +1,6 @@
 import {
   Injectable,
-  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
@@ -34,7 +34,7 @@ export class PublishArticleRepository {
       return result.recordset[0];
 
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('publish.Database_Error');
     }
   }
 
@@ -64,7 +64,7 @@ export class PublishArticleRepository {
       return result.recordset;
 
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('publish.Database_Error');
     }
   }
 
@@ -82,7 +82,7 @@ export class PublishArticleRepository {
       return result.recordset[0] ?? null;
 
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('publish.Database_Error');
     }
   }
 
@@ -110,7 +110,7 @@ export class PublishArticleRepository {
       return result.recordset[0];
 
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('publish.Database_Error');
     }
   }
 
@@ -128,7 +128,7 @@ export class PublishArticleRepository {
       return result.recordset[0];
 
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('publish.Database_Error');
     }
   }
 }

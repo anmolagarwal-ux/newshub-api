@@ -1,6 +1,6 @@
 import {
   Injectable,
-  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 import * as sql from 'mssql';
 
@@ -21,7 +21,7 @@ export class ArticleRepository {
     const pool = this.db.getPool();
 
     if (!pool) {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
 
     return pool;
@@ -43,7 +43,7 @@ export class ArticleRepository {
         created_at: row.created_at,
       }));
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
   }
 
@@ -63,7 +63,7 @@ export class ArticleRepository {
         created_at: row.created_at,
       }));
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
   }
 
@@ -81,7 +81,7 @@ export class ArticleRepository {
         category_name: row.category_name,
       }));
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
   }
 
@@ -114,7 +114,7 @@ export class ArticleRepository {
         total_records: row.total_records,
       }));
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
   }
 
@@ -149,7 +149,7 @@ export class ArticleRepository {
         updated_at: row.updated_at,
       };
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('article.Database_Error');
     }
   }
 }

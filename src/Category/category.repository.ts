@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
 import { CreateCategory, UpdateCategory } from './dto/category.dto';
@@ -14,7 +14,7 @@ export class CategoryRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('category.Database_Error');
     }
   }
 
@@ -29,7 +29,7 @@ export class CategoryRepository {
 
       return result.recordset[0] ?? null;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('category.Database_Error');
     }
   }
 
@@ -47,7 +47,7 @@ export class CategoryRepository {
 
       return result.recordset[0];
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('category.Database_Error');
     }
   }
 
@@ -65,7 +65,7 @@ export class CategoryRepository {
 
       return result.recordset[0];
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('category.Database_Error');
     }
   }
 
@@ -80,7 +80,7 @@ export class CategoryRepository {
 
       return result.recordset[0];
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('category.Database_Error');
     }
   }
 }

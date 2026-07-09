@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
 import { CreateRoleDTO } from './dto/role.dto';
@@ -19,7 +19,7 @@ export class RoleRepository {
 
       return result.recordset[0];
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('role.Database_Error');
     }
   }
 
@@ -33,7 +33,7 @@ export class RoleRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('role.Database_Error');
     }
   }
 
@@ -48,7 +48,7 @@ export class RoleRepository {
 
       return result.recordset[0] ?? null;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('role.Database_Error');
     }
   }
 }

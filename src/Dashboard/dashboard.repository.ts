@@ -1,6 +1,6 @@
 import {
   Injectable,
-  InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 
 import { DatabaseService } from '../../database/database.service';
@@ -21,7 +21,7 @@ export class DashboardRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('dashboard.Database_Error');
     }
   }
 
@@ -35,7 +35,7 @@ export class DashboardRepository {
 
       return result.recordset;
     } catch {
-      throw new InternalServerErrorException();
+      throw new NotFoundException('dashboard.Database_Error');
     }
   }
 }
