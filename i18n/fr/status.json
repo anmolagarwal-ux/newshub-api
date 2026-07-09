@@ -1,4 +1,5 @@
 {
   "Status_List_Success": "La liste des statuts a été récupérée avec succès",
-  "Status_List_Failed": "Échec de la récupération de la liste des statuts"
+  "Status_List_Failed": "Échec de la récupération de la liste des statuts",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

@@ -1,4 +1,5 @@
 {
     "Login_Success": "Login successful",
-    "Invalid_User": "Invalid username or password"
+    "Invalid_User": "Invalid username or password",
+    "Database_Error": "A database error occurred while processing."
 }

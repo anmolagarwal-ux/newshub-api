@@ -7,5 +7,6 @@
   "Role_Update_Failed": "भूमिका अपडेट करने में विफल",
   "Role_Delete_Failed": "भूमिका हटाने में विफल",
 
-  "Role_Not_Found": "भूमिका नहीं मिली"
+  "Role_Not_Found": "भूमिका नहीं मिली",
+  "Database_Error": "प्रसंस्करण के दौरान डेटाबेस में त्रुटि हुई।"
 }

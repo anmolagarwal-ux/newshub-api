@@ -17,5 +17,7 @@
   "Category_Required": "Article category is required",
 
   "Invalid": "Invalid article",
-  "Already_Exists": "Article already exists"
+  "Already_Exists": "Article already exists",
+
+  "Database_Error": "A database error occurred while processing."
 }

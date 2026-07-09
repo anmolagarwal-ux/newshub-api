@@ -3,5 +3,7 @@
   "Status_Detail_Success": "Status details fetched successfully",
 
   "Category_Detail_Failed": "Failed to fetch category details",
-  "Status_Detail_Failed": "Failed to fetch status details"
+  "Status_Detail_Failed": "Failed to fetch status details",
+
+  "Database_Error": "A database error occurred while processing."
 }

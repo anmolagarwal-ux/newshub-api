@@ -10,5 +10,6 @@
   "Subject_Required": "विषय आवश्यक है",
 
   "Contact_Create_Failed": "संपर्क अनुरोध भेजने में विफल",
-  "Contact_Fetch_Failed": "संपर्क अनुरोध प्राप्त करने में विफल"
+  "Contact_Fetch_Failed": "संपर्क अनुरोध प्राप्त करने में विफल",
+  "Database_Error": "प्रसंस्करण के दौरान डेटाबेस में त्रुटि हुई।"
 }

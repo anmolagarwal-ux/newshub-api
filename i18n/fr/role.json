@@ -7,5 +7,6 @@
   "Role_Update_Failed": "Échec de la mise à jour du rôle",
   "Role_Delete_Failed": "Échec de la suppression du rôle",
 
-  "Role_Not_Found": "Rôle introuvable"
+  "Role_Not_Found": "Rôle introuvable",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

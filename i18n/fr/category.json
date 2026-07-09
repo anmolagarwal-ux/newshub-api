@@ -21,5 +21,6 @@
   "Id_Required": "L'identifiant de la catégorie est requis",
 
   "Already_Exists": "La catégorie existe déjà",
-  "Invalid_Category": "Catégorie invalide"
+  "Invalid_Category": "Catégorie invalide",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

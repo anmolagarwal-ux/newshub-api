@@ -10,5 +10,7 @@
   "Subject_Required": "Subject is required",
 
   "Contact_Create_Failed": "Failed to submit contact request",
-  "Contact_Fetch_Failed": "Failed to fetch contact requests"
+  "Contact_Fetch_Failed": "Failed to fetch contact requests",
+
+  "Database_Error": "A database error occurred while processing."
 }

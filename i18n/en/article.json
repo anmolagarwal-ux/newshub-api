@@ -11,5 +11,7 @@
   "Featured_Articles_Failed": "Failed to fetch featured articles",
   "Top_Articles_Failed": "Failed to fetch top articles",
   "Article_List_Failed": "Failed to fetch articles",
-  "Article_Detail_Failed": "Failed to fetch article"
+  "Article_Detail_Failed": "Failed to fetch article",
+
+  "Database_Error": "A database error occurred while processing."
 }

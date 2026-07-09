@@ -10,5 +10,6 @@
   "Subject_Required": "Le sujet est requis",
 
   "Contact_Create_Failed": "Échec de l'envoi de la demande de contact",
-  "Contact_Fetch_Failed": "Échec de la récupération des demandes de contact"
+  "Contact_Fetch_Failed": "Échec de la récupération des demandes de contact",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

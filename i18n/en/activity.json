@@ -5,5 +5,7 @@
   "Activity_Log_List_Failed": "Failed to fetch activity logs",
   "Activity_Log_Create_Failed": "Failed to create activity log",
 
-  "Activity_Log_Not_Found": "Activity log not found"
+  "Activity_Log_Not_Found": "Activity log not found",
+
+  "Database_Error": "A database error occurred while processing."
 }

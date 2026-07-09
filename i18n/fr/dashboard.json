@@ -3,5 +3,6 @@
   "Status_Detail_Success": "Les détails des statuts ont été récupérés avec succès",
 
   "Category_Detail_Failed": "Échec de la récupération des détails des catégories",
-  "Status_Detail_Failed": "Échec de la récupération des détails des statuts"
+  "Status_Detail_Failed": "Échec de la récupération des détails des statuts",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

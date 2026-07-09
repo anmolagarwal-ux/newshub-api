@@ -21,5 +21,6 @@
   "Id_Required": "श्रेणी आईडी आवश्यक है",
 
   "Already_Exists": "श्रेणी पहले से मौजूद है",
-  "Invalid_Category": "अमान्य श्रेणी"
+  "Invalid_Category": "अमान्य श्रेणी",
+  "Database_Error": "प्रसंस्करण के दौरान डेटाबेस में त्रुटि हुई।"
 }

@@ -10,5 +10,7 @@
   "User_Update_Failed": "Failed to update user",
   "User_Delete_Failed": "Failed to delete user",
 
-  "User_Not_Found": "User not found"
+  "User_Not_Found": "User not found",
+
+  "Database_Error": "A database error occurred while processing."
 }

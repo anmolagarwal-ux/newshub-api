@@ -10,5 +10,6 @@
   "User_Update_Failed": "Échec de la mise à jour de l'utilisateur",
   "User_Delete_Failed": "Échec de la suppression de l'utilisateur",
 
-  "User_Not_Found": "Utilisateur introuvable"
+  "User_Not_Found": "Utilisateur introuvable",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

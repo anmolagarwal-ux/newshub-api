@@ -5,5 +5,6 @@
   "Activity_Log_List_Failed": "Échec de la récupération des journaux d'activité",
   "Activity_Log_Create_Failed": "Échec de la création du journal d'activité",
 
-  "Activity_Log_Not_Found": "Journal d'activité introuvable"
+  "Activity_Log_Not_Found": "Journal d'activité introuvable",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

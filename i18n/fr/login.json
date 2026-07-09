@@ -1,4 +1,5 @@
 {
   "Login_Success": "Connexion réussie",
-  "Invalid_User": "Nom d'utilisateur ou mot de passe invalide"
+  "Invalid_User": "Nom d'utilisateur ou mot de passe invalide",
+  "Database_Error": "Une erreur de base de données s'est produite lors du traitement."
 }

@@ -1,4 +1,6 @@
 {
   "Status_List_Success": "Status list fetched successfully",
-  "Status_List_Failed": "Failed to fetch status list"
+  "Status_List_Failed": "Failed to fetch status list",
+
+  "Database_Error": "A database error occurred while processing."
 }

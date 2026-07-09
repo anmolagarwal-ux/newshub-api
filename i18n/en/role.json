@@ -7,5 +7,7 @@
   "Role_Update_Failed": "Failed to update role",
   "Role_Delete_Failed": "Failed to delete role",
 
-  "Role_Not_Found": "Role not found"
+  "Role_Not_Found": "Role not found",
+
+  "Database_Error": "A database error occurred while processing."
 }
